@@ -1,2 +1,2 @@
 
-# SAR-Net: Shape Alignment and Recovery Network for Category-level 6D Object Pose and Size Estimation
+# WALL-E: Embodied Robotic WAiter Load Lifting with Large Language Model
