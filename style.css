@@ -413,6 +413,16 @@ h3 {
     margin-right: 30px;
 }
 
+.institute-title {
+    color: #003373;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.institute-title:hover {
+    border-bottom: 1px solid #003373;
+}
+
 .experience-content {
     flex: 1;
 }
