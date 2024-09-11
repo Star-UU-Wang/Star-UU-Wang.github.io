@@ -335,6 +335,11 @@ h3 {
     font-weight: 700;
 }
 
+.research-proj p highlight {
+    color: #f66464;
+    font-weight: 700;
+}
+
 #morePubs {
     display: none;
 }
