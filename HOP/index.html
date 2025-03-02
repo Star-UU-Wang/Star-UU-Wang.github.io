@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="HOP">
+  <meta name="keywords" content="Multimodal, Co-Speech Gesture Generation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HOP: Heterogeneous Topology-based Multimodal Entanglement for Co-Speech Gesture Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/Hop.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">            
+            <img src="./static/images/Hop.png" id="hop" width="5%"><span style="background: linear-gradient(to right,  indigo, skyblue, violet, indigo, violet); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                HOP
+            </span>: <span style="color: skyblue;">H</span>eterogeneous T<span style="color: skyblue;">o</span>pology-based Multimodal Entanglement for Co-S<span style="color: skyblue;">p</span>eech Gesture Generation</h1>
+          <h4 class="title publication-title" style="font-size: 1.5rem;">CVPR 2025</h4>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="">Hongye Cheng</a><sup>*1</sup>,&nbsp;</span>
+            <span class="author-block">
+              <a href="https://star-uu-wang.github.io/">Tianyu Wang</a><sup>*2</sup>,&nbsp;</span>
+            <span class="author-block">
+              <a href="https://au.linkedin.com/in/guangsi-shi-040432126/en">Guangsi Shi</a><sup>†3</sup>,&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="">Zexing Zhao</a><sup>1</sup>,&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://yanweifu.github.io/">Yanwei Fu</a><sup>†2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Northwest A&F University&nbsp; &nbsp;</span>
+            <span class="author-block"><sup>2</sup>Fudan University&nbsp; &nbsp;</span>
+            <span class="author-block"><sup>3</sup>Monash University</span>
+          </div>
+
+          <p> <sup>*</sup> equal contribution &nbsp;
+            <sup>†</sup> corresponding authors &nbsp;
+          </p>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="image-container">
+        <img src="./static/figs/teaser.png" alt="Teaser Image" width="100%" height="auto" />
+      </div>
+      <!-- <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Comparison between DSG+ and our MDT-A2G-B with respect to training steps/times on a single A100 GPU. Compared to DSG+, MDT-A2G-B exhibits a faster training convergence speed and superior performance,
+          demonstrating the effectiveness of proposed method.
+      </h2> -->
+    </div>
+  </div>
+</section>
+
+<style>
+  .image-container {
+    display: flex;
+    justify-content: center;
+  }
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
+<!-- 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+<!--         <h2 class="title is-3">Abstract</h2> -->
+        <h2 class="title is-3" style="background: linear-gradient(to right,  indigo, indigo, skyblue,indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"> Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Co-speech gestures are crucial non-verbal cues that enhance speech clarity and expressiveness in human communication, which have attracted increasing attention in multimodal research. 
+            While the existing methods have made strides in gesture accuracy, challenges remain in generating diverse and coherent gestures, as most approaches assume independence among multimodal inputs and lack explicit modeling of their interactions. 
+            In this work, we propose a novel multimodal learning method named HOP for co-speech gesture generation that captures the heterogeneous entanglement between gesture motion, audio rhythm, and text semantics, enabling the generation of coordinated gestures. 
+            By leveraging spatiotemporal graph modeling, we achieve the alignment of audio and action. Moreover, to enhance modality coherence, we build the audio-text semantic representation based on a reprogramming module, which is beneficial for cross-modality adaptation. 
+            Our approach enables the trimodal system to learn each other's features and represent them in the form of topological entanglement. Extensive experiments demonstrate that HOP achieves state-of-the-art performance, offering more natural and expressive co-speech gesture generation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  <!-- Paper image. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3" style="background: linear-gradient(to right,  indigo, indigo, skyblue,indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"> Framework</h2>
+      <div class="publication-image">
+        <img src="./static/figs/framework.png" alt="Framework Image" style="max-width: 100%; height: auto;">
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          <b>Overview of the proposed framework for multimodal gesture generation with heterogeneous topology entanglement. </b>
+          Given the input text of speech and the Mel-Spectrum obtained through audio preprocessing, we treat audio sequences as a bridge, linking text sequences and action sequences with distinct topologies. 
+          For the connection between text and audio, we apply a reprogramming layer to align data from these different modalities, utilizing a language model to extract embedded semantic information. To link action and audio, we employ the Graph-WaveNet approach to separately extract action and audio features. The entangled multimodal representations are then fed into the gesture generator through topological fusion, resulting in the generation of co-speech gestures.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Paper image. -->
+
+  <!-- Paper image. -->
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3" style="background: linear-gradient(to right,  indigo, indigo, skyblue,indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"> Visualization</h2>
+      <div class="publication-image">
+        <img src="./static/figs/visualization.png" alt="Framework Image" style="max-width: 100%; height: auto;">
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          <b>Visualization of generated gestures. </b>
+          The gestures generated by our method more effectively capture the semantic information in the text, exhibiting a greater range of movement rhythm in the highlighted sections. 
+          We highlight the text and its corresponding gesture actions using red and yellow shading, respectively.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Paper image. -->
+
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      
+    <!-- Animation. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <!-- Re-rendering. -->
+        <h2 class="title is-3" style="background: linear-gradient(to right,  indigo, indigo, skyblue,indigo, indigo); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"> Co-Speech Gesture Generation Demo</h2>
+<!--         <h3 class="title is-4">Demo</h3> -->
+        <div class="content has-text-justified">
+<!--           <p>
+            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
+            viewpoint such as a stabilized camera by playing back the training deformations.
+          </p> -->
+        </div>
+        <!-- <div class="content has-text-centered">
+          <video id="replay-video"
+                 controls
+                 muted
+                 preload
+                 playsinline
+                 width="75%">
+            <source src="./static/figs/demo.mp4"
+                    type="video/mp4">
+          </video>
+        </div> -->
+        <div class="content">
+          <div class="columns is-centered">
+            <div class="column">
+              <video id="164" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/TED_expressive_identity_164.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <video id="505" controls playsinline height="100%">
+                <source src="./static/videos/TED_expressive_identity_505.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="columns is-centered">
+            <div class="column">
+              <video id="833" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/TED_expressive_identity_833.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <video id="955" controls playsinline height="100%">
+                <source src="./static/videos/TED_expressive_identity_955.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p>Ted Expressive Demo</p>
+        </div>
+
+        <br>
+
+        <div class="content">
+          <div class="columns is-centered">
+            <div class="column">
+              <video id="65" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/TED_identity_65.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <video id="371" controls playsinline height="100%">
+                <source src="./static/videos/TED_identity_371.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <div class="columns is-centered">
+            <div class="column">
+              <video id="685" autoplay controls muted loop playsinline height="100%">
+                <source src="./static/videos/TED_identity_685.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+            <div class="column">
+              <video id="886" controls playsinline height="100%">
+                <source src="./static/videos/TED_identity_886.mp4"
+                        type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <p>Ted Demo</p>
+        </div>
+        <!--/ Re-rendering. -->
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{HOP,
+  author    = {Hongye Cheng, Tianyu Wang, Guangsi Shi, Zexing Zhao, Yanwei Fu},
+  title     = {HOP: Heterogeneous Topology-based Multimodal Entanglement for Co-Speech Gesture Generation},
+  journal   = {CVPR},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+  
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered"> -->
+      <!-- <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a> -->
+      <!-- <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a> -->
+    <!-- </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <!-- <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p> -->
+          <p style="text-align:center">
+            Please contact Guangsi Shi: guangsi.shi@monash.edu or Professor Yanwei Fu: yanweifu@fudan.edu.cn for feedback and questions. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
